@@ -1,0 +1,42 @@
+{
+  "name": "@0y0/cucumber-kits",
+  "version": "1.0.0-beta.0",
+  "description": "Cucumber Kits.",
+  "main": "lib/index.js",
+  "repository": "https://github.com/o0y0o/f2e-test-kits",
+  "author": "Jason Chung <shiningjason1989@gmail.com>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "/lib"
+  ],
+  "keywords": [
+    "test",
+    "e2e-test",
+    "acceptance-test",
+    "cucumber",
+    "cucumber-js",
+    "allure"
+  ],
+  "scripts": {
+    "format": "prettier --write lib/**/*.js",
+    "lint": "eslint lib/**/*.js",
+    "pkg": "[ $(yarn info $npm_package_name version) != $npm_package_version ] && yarn publish || echo Skip publishing due to v$npm_package_version exist"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^7.1.0",
+    "allure2-js-commons": "^1.2.0",
+    "chalk": "^4.1.0",
+    "cli-truncate": "^2.1.0",
+    "csv-stringify": "^5.6.2",
+    "dayjs": "^1.10.4",
+    "fs-extra": "^9.1.0",
+    "listr": "^0.14.3",
+    "lodash": "^4.17.21",
+    "log-update": "^4.0.0",
+    "marked": "^2.0.1",
+    "nanoid": "^3.1.22"
+  }
+}
