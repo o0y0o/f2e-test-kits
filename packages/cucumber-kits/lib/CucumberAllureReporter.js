@@ -2,6 +2,7 @@ const path = require('path')
 const { AllureRuntime, LabelName } = require('allure2-js-commons')
 const csvStringify = require('csv-stringify')
 const day = require('dayjs')
+const dayUtcPlugin = require('dayjs/plugin/utc')
 const fs = require('fs-extra')
 const { kebabCase } = require('lodash')
 const marked = require('marked')
@@ -9,6 +10,8 @@ const { nanoid } = require('nanoid')
 const promisify = require('./utils/promisify')
 const BaseCucumberFormatter = require('./BaseCucumberFormatter')
 const CucumberLogger = require('./CucumberLogger')
+
+day.extend(dayUtcPlugin)
 
 function cucumberStatusToAllureStatus(status, ignoreIfFailed) {
   switch (status) {
@@ -52,7 +55,12 @@ module.exports = class CucumberAllureReporter extends BaseCucumberFormatter {
 
   constructor(options) {
     super(options)
-    const { reportName = 'Cucumber Test Reports', reportRevision = Date.now(), reportDir } = options.allure || {}
+    const {
+      reportName = 'Cucumber Test Reports',
+      reportRevision = Date.now(),
+      reportUtcOffset = day().utcOffset(),
+      reportDir
+    } = options.allure || {}
     if (reportDir == null) throw new Error('`options.allure.reportDir` should not be null')
     try {
       const filenames = fs.readdirSync(reportDir)
@@ -63,6 +71,7 @@ module.exports = class CucumberAllureReporter extends BaseCucumberFormatter {
     this.reportName = reportName
     this.reportPrefix = `${kebabCase(reportName)}_${day().format('YYYY-MM-DD')}`
     this.reportRevision = reportRevision
+    this.reportUtcOffset = reportUtcOffset
     this.reportDir = reportDir
     this.rootReport = this.allureRuntime.startGroup(reportName)
   }
@@ -82,7 +91,7 @@ module.exports = class CucumberAllureReporter extends BaseCucumberFormatter {
 
     const title = [
       { name: 'Revision', value: this.reportRevision },
-      { name: 'Time', value: day().utcOffset(480).format() }
+      { name: 'Time', value: day().utcOffset(this.reportUtcOffset).format() }
     ]
       .filter(meta => meta.value)
       .map(meta => `***${meta.name}***\n\n${meta.value}`)
