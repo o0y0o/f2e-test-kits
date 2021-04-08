@@ -1,4 +1,4 @@
-const { Formatter } = require('@cucumber/cucumber')
+const { Formatter } = require('cucumber')
 const { identity } = require('lodash')
 
 function replaceArgs(text = '', args = {}, match = identity) {
