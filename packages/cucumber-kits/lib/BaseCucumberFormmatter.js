@@ -170,7 +170,7 @@ module.exports = class BaseCucumberFormatter extends Formatter {
         }
         const testStep = testCase.steps[index - numOfBeforeHooks]
         if (testStep.args) {
-          testStep.args = testStep.args.map(cells => cells.map(cell => replaceArgs(cell, option.args)))
+          testStep.args = testStep.args.map(cells => cells.map(cell => replaceArgs(cell, options.args)))
         }
         this.onTestStepFinished(testStep, result)
       })
