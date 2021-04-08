@@ -35,16 +35,17 @@ function cucumberStatusToAllureStage(status) {
   }
 }
 
-function createPackageName(testSuite) {
+function createPackageName(reportNamespace, testSuite) {
   const moduleName = kebabCase(testSuite.name.match(/^\[(.*)\]/)[1])
   const featureName = kebabCase(testSuite.id.match(/([^/]+)\.feature$/)[1])
-  return `${kebabCaseReportName}.${moduleName}.${featureName}`.replace(/\.$/, '')
+  return `${reportNamespace}.${moduleName}.${featureName}`.replace(/\.$/, '')
 }
 
 module.exports = class CucumberAllureReporter extends BaseCucumberFormatter {
   logger = undefined
   allureRuntime = undefined
   reportName = undefined
+  reportNamespace = undefined
   reportPrefix = undefined
   reportRevision = undefined
   reportDir = undefined
@@ -69,7 +70,8 @@ module.exports = class CucumberAllureReporter extends BaseCucumberFormatter {
     this.logger = new CucumberLogger(options)
     this.allureRuntime = new AllureRuntime({ resultsDir: reportDir })
     this.reportName = reportName
-    this.reportPrefix = `${kebabCase(reportName)}_${day().format('YYYY-MM-DD')}`
+    this.reportNamespace = kebabCase(reportName)
+    this.reportPrefix = `${this.reportNamespace}_${day().format('YYYY-MM-DD')}`
     this.reportRevision = reportRevision
     this.reportUtcOffset = reportUtcOffset
     this.reportDir = reportDir
@@ -99,7 +101,7 @@ module.exports = class CucumberAllureReporter extends BaseCucumberFormatter {
     const caseReport = suiteReport.startTest(testCase.name)
     caseReport.historyId = `${this.reportName}: ${testCase.name}`
     caseReport.descriptionHtml = marked(`${title}\n\n${testCase.description}`)
-    caseReport.addLabel(LabelName.PACKAGE, createPackageName(testSuite))
+    caseReport.addLabel(LabelName.PACKAGE, createPackageName(this.reportNamespace, testSuite))
     caseReport.addLabel(LabelName.SUITE, this.rootReport.name)
     caseReport.addLabel(LabelName.SUB_SUITE, suiteReport.name)
     caseReport.addLabel(LabelName.FEATURE, suiteReport.name)
