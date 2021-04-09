@@ -8,11 +8,12 @@ function replaceArgs(text = '', args = {}, match = identity) {
   }
 }
 
+function replaceTestParams(text, params) {
+  return replaceArgs(text, params, k => `<${k}>`)
+}
+
 function getDescription(featureDescription, scenarioDescription, params) {
-  return [featureDescription, replaceArgs(scenarioDescription, params, k => `<${k}>`)]
-    .map(trim)
-    .filter(Boolean)
-    .join('\n\n')
+  return [featureDescription, replaceTestParams(scenarioDescription, params)].map(trim).filter(Boolean).join('\n\n')
   function trim(text = '') {
     return text
       .split('\n')
@@ -37,12 +38,12 @@ function getTestStep(suiteId, caseId, step, params) {
     suiteId,
     caseId,
     id: `${caseId}:${step.location.line}`,
-    name: `${step.keyword}${replaceArgs(step.text, params)}`,
+    name: `${step.keyword}${replaceTestParams(step.text, params)}`,
     text: step.text,
     args: step.argument?.type === 'DataTable' ? replaceRows(step.argument.rows) : null
   }
   function replaceRows(rows) {
-    return rows.map(r => r.cells.map(c => replaceArgs(c.value, params)))
+    return rows.map(r => r.cells.map(c => replaceTestParams(c.value, params)))
   }
 }
 
@@ -74,7 +75,7 @@ function getTestCases(suiteId, feature) {
               return {
                 suiteId,
                 id: caseId,
-                name: replaceArgs(scenario.name, params),
+                name: replaceTestParams(scenario.name, params),
                 description: getDescription(feature.description, scenario.description, params),
                 text: scenario.name,
                 tags: [...scenario.tags, ...tags].map(t => t.name),
@@ -170,7 +171,7 @@ module.exports = class BaseCucumberFormatter extends Formatter {
         }
         const testStep = testCase.steps[index - numOfBeforeHooks]
         if (testStep.args) {
-          testStep.args = testStep.args.map(cells => cells.map(cell => replaceArgs(cell, options.args)))
+          testStep.args = testStep.args.map(cells => cells.map(cell => replaceArgs(cell, options.testing?.state)))
         }
         this.onTestStepFinished(testStep, result)
       })
