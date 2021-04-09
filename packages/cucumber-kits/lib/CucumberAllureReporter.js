@@ -156,7 +156,7 @@ module.exports = class CucumberAllureReporter extends BaseCucumberFormatter {
     caseReport.status = cucumberStatusToAllureStatus(result.status, ignoreIfFailed)
     caseReport.stage = cucumberStatusToAllureStage(result.status)
     caseReport.detailsMessage = result.exception?.message
-    for (const attachment of result.attachments) {
+    for (const attachment of result.attachments ?? []) {
       this.attachFile(caseReport, attachment.filename, attachment.media, attachment.data)
     }
     caseReport.endTest()

@@ -97,19 +97,24 @@ module.exports = class BaseCucumberFormatter extends Formatter {
     super(options)
 
     const testSuites = []
-    const library = options.supportCodeLibrary
-    const allBeforeHooks = library.beforeTestCaseHookDefinitions
-    const allAfterHooks = library.afterTestCaseHookDefinitions
+    const {
+      eventBroadcaster,
+      supportCodeLibrary: {
+        beforeTestCaseHookDefinitions: allBeforeHooks,
+        afterTestCaseHookDefinitions: allAfterHooks
+      },
+      suiteFormatter = identity,
+      runtimeState
+    } = options
 
-    options.eventBroadcaster
+    eventBroadcaster
       .on('gherkin-document', data => {
         const { document, uri: suiteId } = data
         const { feature } = document
-        const moduleName = suiteId.match(/features\/(.+)\/[^/]+\.feature$/)[1]
         const tags = feature.tags.map(t => t.name)
         const testSuite = {
           id: suiteId,
-          name: `[${moduleName}] ${feature.name}`,
+          name: suiteFormatter(feature.name, suiteId),
           cases: getTestCases(suiteId, feature),
           tags,
           beforeHooks: getHooks(allBeforeHooks, 'before', suiteId, tags),
@@ -171,7 +176,7 @@ module.exports = class BaseCucumberFormatter extends Formatter {
         }
         const testStep = testCase.steps[index - numOfBeforeHooks]
         if (testStep.args) {
-          testStep.args = testStep.args.map(cells => cells.map(cell => replaceArgs(cell, options.testing?.state)))
+          testStep.args = testStep.args.map(cells => cells.map(cell => replaceArgs(cell, runtimeState)))
         }
         this.onTestStepFinished(testStep, result)
       })

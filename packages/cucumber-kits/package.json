@@ -1,6 +1,6 @@
 {
   "name": "@0y0/cucumber-kits",
-  "version": "1.0.0-beta.6",
+  "version": "1.0.0-beta.7",
   "description": "Cucumber Kits.",
   "main": "lib/index.js",
   "repository": "https://github.com/o0y0o/f2e-test-kits",
@@ -21,8 +21,9 @@
     "allure"
   ],
   "scripts": {
-    "format": "prettier --write lib/**/*.js",
-    "lint": "eslint lib/**/*.js",
+    "format": "prettier --write {lib,test}/**/*.js",
+    "lint": "eslint {lib,test}/**/*.js",
+    "test": "jest",
     "pkg": "[ $(yarn info $npm_package_name version) != $npm_package_version ] && yarn publish || echo Skip publishing due to v$npm_package_version exist"
   },
   "dependencies": {
@@ -38,5 +39,10 @@
     "log-update": "^4.0.0",
     "marked": "^2.0.1",
     "nanoid": "^3.1.22"
+  },
+  "jest": {
+    "testMatch": [
+      "<rootDir>/test/**/*.spec.js"
+    ]
   }
 }
