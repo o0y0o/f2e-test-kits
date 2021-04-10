@@ -44,5 +44,10 @@
     "testMatch": [
       "<rootDir>/test/**/*.spec.js"
     ]
+  },
+  "babel": {
+    "presets": [
+      "@0y0/vanilla"
+    ]
   }
 }
