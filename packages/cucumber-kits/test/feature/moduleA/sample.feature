@@ -1,27 +1,27 @@
-@FakeFeatureTag1 @FakeFeatureTag2
+@FakeFeature @FakeFeature1
 
-Feature: This is Sample Feature for Testing
+Feature: Fake Feature
   ***Main Functions***
-  - [FakeModule1] `FakeFunc1`
-  - [FakeModule2] `FakeFunc2`
+  - [FakeModuleA] `FakeFunc1`
 
-  ***Related Functions***
-  - [FakeModule3] `FakeFunc3`
-  - [FakeModule4] `FakeFunc4`
-
-  @FakeScenarioTag1 @FakeScenarioTag2
-  Scenario: This is Sample Scenario for Testing
-    ***Main Functions***
-    - [FakeModuleA] `FakeFuncA`
-    - [FakeModuleB] `FakeFuncB`
-
+  @FakeScenario @FakeScenario1
+  Scenario: Fake Scenario
     ***Related Functions***
-    - [FakeModuleC] `FakeFuncC`
-    - [FakeModuleD] `FakeFuncD`
+    - [FakeModuleB] `FakeFunc2`
 
     Given X has done something
-    And Y has done something
     When X does some actions
-    And Y does some actions
-    Then X will get expected results
-    And Y will get expected results
+    Then X gets expected results
+
+  @FakeScenarioOutline @FakeScenarioOutline1
+  Scenario Outline: Fake Scenario Outline (<who>)
+    ***Related Functions***
+    - [FakeModuleC] `FakeFunc<func>`
+
+    Given <who> has done something
+    When <who> does some actions
+    Then <who> gets expected results
+    Examples:
+      | who   | func |
+      | admin | 3    |
+      | user  | 4    |

@@ -11,6 +11,7 @@
     "format": "lerna run format",
     "lint": "lerna run lint",
     "test": "lerna run test",
+    "test:ck": "lerna exec --scope @0y0/cucumber-kits -- yarn test",
     "build": "lerna run build",
     "ver": "lerna version --no-push && git tag | xargs git tag -d",
     "pkg": "lerna publish from-package --yes"
