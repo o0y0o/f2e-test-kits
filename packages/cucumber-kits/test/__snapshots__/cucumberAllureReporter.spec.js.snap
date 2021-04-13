@@ -1,0 +1,323 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario outline report 1`] = `
+Object {
+  "attachments": Array [],
+  "descriptionHtml": StringMatching /\\^<p><em><strong>Revision<\\\\/strong><\\\\/em><\\\\/p>\\\\n<p>v0\\.0\\.0<\\\\/p>\\\\n<p><em><strong>Time<\\\\/strong><\\\\/em><\\\\/p>\\\\n<p>\\\\d\\{4\\}-\\\\d\\{2\\}-\\\\d\\{2\\}T\\\\d\\{2\\}:\\\\d\\{2\\}:\\\\d\\{2\\}\\\\\\+08:00<\\\\/p>\\\\n<p><em><strong>Main Functions<\\\\/strong><\\\\/em><\\\\/p>\\\\n<ul>\\\\n<li>\\\\\\[FakeModule\\\\\\] <code>FakeFunc<\\\\/code><\\\\/li>\\\\n<\\\\/ul>\\\\n<p><em><strong>Related Functions<\\\\/strong><\\\\/em><\\\\/p>\\\\n<ul>\\\\n<li>\\\\\\[FakeModuleB\\\\\\] <code>FakeFuncB1<\\\\/code><\\\\/li>\\\\n<\\\\/ul>\\\\n\\$/,
+  "historyId": "Allure Test Reports: Fake Scenario Outline (admin)",
+  "labels": Array [
+    Object {
+      "name": "package",
+      "value": "allure-test-reports.module-a.sample",
+    },
+    Object {
+      "name": "suite",
+      "value": "Allure Test Reports",
+    },
+    Object {
+      "name": "subSuite",
+      "value": "[moduleA] Fake Feature",
+    },
+    Object {
+      "name": "feature",
+      "value": "[moduleA] Fake Feature",
+    },
+    Object {
+      "name": "story",
+      "value": "Fake Scenario Outline (<who>)",
+    },
+    Object {
+      "name": "tag",
+      "value": "@FakeFeature",
+    },
+    Object {
+      "name": "tag",
+      "value": "@FakeFeature1",
+    },
+    Object {
+      "name": "tag",
+      "value": "@FakeScenarioOutline",
+    },
+    Object {
+      "name": "tag",
+      "value": "@FakeScenarioOutline1",
+    },
+  ],
+  "links": Array [],
+  "name": "Fake Scenario Outline (admin)",
+  "parameters": Array [],
+  "stage": "finished",
+  "start": Any<Number>,
+  "status": "passed",
+  "statusDetails": Object {},
+  "steps": Any<Array>,
+  "stop": Any<Number>,
+  "uuid": Any<String>,
+}
+`;
+
+exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario outline report 2`] = `
+Object {
+  "attachments": Array [],
+  "descriptionHtml": StringMatching /\\^<p><em><strong>Revision<\\\\/strong><\\\\/em><\\\\/p>\\\\n<p>v0\\.0\\.0<\\\\/p>\\\\n<p><em><strong>Time<\\\\/strong><\\\\/em><\\\\/p>\\\\n<p>\\\\d\\{4\\}-\\\\d\\{2\\}-\\\\d\\{2\\}T\\\\d\\{2\\}:\\\\d\\{2\\}:\\\\d\\{2\\}\\\\\\+08:00<\\\\/p>\\\\n<p><em><strong>Main Functions<\\\\/strong><\\\\/em><\\\\/p>\\\\n<ul>\\\\n<li>\\\\\\[FakeModule\\\\\\] <code>FakeFunc<\\\\/code><\\\\/li>\\\\n<\\\\/ul>\\\\n<p><em><strong>Related Functions<\\\\/strong><\\\\/em><\\\\/p>\\\\n<ul>\\\\n<li>\\\\\\[FakeModuleB\\\\\\] <code>FakeFuncB2<\\\\/code><\\\\/li>\\\\n<\\\\/ul>\\\\n\\$/,
+  "historyId": "Allure Test Reports: Fake Scenario Outline (user)",
+  "labels": Array [
+    Object {
+      "name": "package",
+      "value": "allure-test-reports.module-a.sample",
+    },
+    Object {
+      "name": "suite",
+      "value": "Allure Test Reports",
+    },
+    Object {
+      "name": "subSuite",
+      "value": "[moduleA] Fake Feature",
+    },
+    Object {
+      "name": "feature",
+      "value": "[moduleA] Fake Feature",
+    },
+    Object {
+      "name": "story",
+      "value": "Fake Scenario Outline (<who>)",
+    },
+    Object {
+      "name": "tag",
+      "value": "@FakeFeature",
+    },
+    Object {
+      "name": "tag",
+      "value": "@FakeFeature1",
+    },
+    Object {
+      "name": "tag",
+      "value": "@FakeScenarioOutline",
+    },
+    Object {
+      "name": "tag",
+      "value": "@FakeScenarioOutline1",
+    },
+  ],
+  "links": Array [],
+  "name": "Fake Scenario Outline (user)",
+  "parameters": Array [],
+  "stage": "finished",
+  "start": Any<Number>,
+  "status": "passed",
+  "statusDetails": Object {},
+  "steps": Any<Array>,
+  "stop": Any<Number>,
+  "uuid": Any<String>,
+}
+`;
+
+exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario outline report 3`] = `
+Object {
+  "attachments": Any<Array>,
+  "name": "Given admin has done something",
+  "parameters": Array [],
+  "stage": "finished",
+  "start": Any<Number>,
+  "status": "passed",
+  "statusDetails": Object {},
+  "steps": Array [],
+  "stop": Any<Number>,
+}
+`;
+
+exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario outline report 4`] = `
+Object {
+  "attachments": Any<Array>,
+  "name": "When admin does some actions",
+  "parameters": Array [],
+  "stage": "finished",
+  "start": Any<Number>,
+  "status": "passed",
+  "statusDetails": Object {},
+  "steps": Array [],
+  "stop": Any<Number>,
+}
+`;
+
+exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario outline report 5`] = `
+Object {
+  "attachments": Any<Array>,
+  "name": "Then admin gets expected results",
+  "parameters": Array [],
+  "stage": "finished",
+  "start": Any<Number>,
+  "status": "passed",
+  "statusDetails": Object {},
+  "steps": Array [],
+  "stop": Any<Number>,
+}
+`;
+
+exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario outline report 6`] = `
+Object {
+  "attachments": Any<Array>,
+  "name": "And admin stores expected results",
+  "parameters": Array [],
+  "stage": "finished",
+  "start": Any<Number>,
+  "status": "passed",
+  "statusDetails": Object {},
+  "steps": Array [],
+  "stop": Any<Number>,
+}
+`;
+
+exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario outline report 7`] = `
+Object {
+  "attachments": Any<Array>,
+  "name": "Given user has done something",
+  "parameters": Array [],
+  "stage": "finished",
+  "start": Any<Number>,
+  "status": "passed",
+  "statusDetails": Object {},
+  "steps": Array [],
+  "stop": Any<Number>,
+}
+`;
+
+exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario outline report 8`] = `
+Object {
+  "attachments": Any<Array>,
+  "name": "When user does some actions",
+  "parameters": Array [],
+  "stage": "finished",
+  "start": Any<Number>,
+  "status": "passed",
+  "statusDetails": Object {},
+  "steps": Array [],
+  "stop": Any<Number>,
+}
+`;
+
+exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario outline report 9`] = `
+Object {
+  "attachments": Any<Array>,
+  "name": "Then user gets expected results",
+  "parameters": Array [],
+  "stage": "finished",
+  "start": Any<Number>,
+  "status": "passed",
+  "statusDetails": Object {},
+  "steps": Array [],
+  "stop": Any<Number>,
+}
+`;
+
+exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario outline report 10`] = `
+Object {
+  "attachments": Any<Array>,
+  "name": "And user stores expected results",
+  "parameters": Array [],
+  "stage": "finished",
+  "start": Any<Number>,
+  "status": "passed",
+  "statusDetails": Object {},
+  "steps": Array [],
+  "stop": Any<Number>,
+}
+`;
+
+exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario report 1`] = `
+Object {
+  "attachments": Array [],
+  "descriptionHtml": StringMatching /\\^<p><em><strong>Revision<\\\\/strong><\\\\/em><\\\\/p>\\\\n<p>v0\\.0\\.0<\\\\/p>\\\\n<p><em><strong>Time<\\\\/strong><\\\\/em><\\\\/p>\\\\n<p>\\\\d\\{4\\}-\\\\d\\{2\\}-\\\\d\\{2\\}T\\\\d\\{2\\}:\\\\d\\{2\\}:\\\\d\\{2\\}\\\\\\+08:00<\\\\/p>\\\\n<p><em><strong>Main Functions<\\\\/strong><\\\\/em><\\\\/p>\\\\n<ul>\\\\n<li>\\\\\\[FakeModule\\\\\\] <code>FakeFunc<\\\\/code><\\\\/li>\\\\n<\\\\/ul>\\\\n<p><em><strong>Related Functions<\\\\/strong><\\\\/em><\\\\/p>\\\\n<ul>\\\\n<li>\\\\\\[FakeModuleA\\\\\\] <code>FakeFuncA1<\\\\/code><\\\\/li>\\\\n<\\\\/ul>\\\\n\\$/,
+  "historyId": "Allure Test Reports: Fake Scenario",
+  "labels": Array [
+    Object {
+      "name": "package",
+      "value": "allure-test-reports.module-a.sample",
+    },
+    Object {
+      "name": "suite",
+      "value": "Allure Test Reports",
+    },
+    Object {
+      "name": "subSuite",
+      "value": "[moduleA] Fake Feature",
+    },
+    Object {
+      "name": "feature",
+      "value": "[moduleA] Fake Feature",
+    },
+    Object {
+      "name": "story",
+      "value": "Fake Scenario",
+    },
+    Object {
+      "name": "tag",
+      "value": "@FakeFeature",
+    },
+    Object {
+      "name": "tag",
+      "value": "@FakeFeature1",
+    },
+    Object {
+      "name": "tag",
+      "value": "@FakeScenario",
+    },
+    Object {
+      "name": "tag",
+      "value": "@FakeScenario1",
+    },
+  ],
+  "links": Array [],
+  "name": "Fake Scenario",
+  "parameters": Array [],
+  "stage": "finished",
+  "start": Any<Number>,
+  "status": "passed",
+  "statusDetails": Object {},
+  "steps": Any<Array>,
+  "stop": Any<Number>,
+  "uuid": Any<String>,
+}
+`;
+
+exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario report 2`] = `
+Object {
+  "attachments": Any<Array>,
+  "name": "Given X has done something",
+  "parameters": Array [],
+  "stage": "finished",
+  "start": Any<Number>,
+  "status": "passed",
+  "statusDetails": Object {},
+  "steps": Array [],
+  "stop": Any<Number>,
+}
+`;
+
+exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario report 3`] = `
+Object {
+  "attachments": Any<Array>,
+  "name": "When X does some actions",
+  "parameters": Array [],
+  "stage": "finished",
+  "start": Any<Number>,
+  "status": "passed",
+  "statusDetails": Object {},
+  "steps": Array [],
+  "stop": Any<Number>,
+}
+`;
+
+exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario report 4`] = `
+Object {
+  "attachments": Any<Array>,
+  "name": "Then X gets expected results",
+  "parameters": Array [],
+  "stage": "finished",
+  "start": Any<Number>,
+  "status": "passed",
+  "statusDetails": Object {},
+  "steps": Array [],
+  "stop": Any<Number>,
+}
+`;

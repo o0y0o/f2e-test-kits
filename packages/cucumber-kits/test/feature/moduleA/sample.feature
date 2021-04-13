@@ -2,12 +2,12 @@
 
 Feature: Fake Feature
   ***Main Functions***
-  - [FakeModuleA] `FakeFunc1`
+  - [FakeModule] `FakeFunc`
 
   @FakeScenario @FakeScenario1
   Scenario: Fake Scenario
     ***Related Functions***
-    - [FakeModuleB] `FakeFunc2`
+    - [FakeModuleA] `FakeFuncA1`
 
     Given X has done something
     When X does some actions
@@ -16,12 +16,15 @@ Feature: Fake Feature
   @FakeScenarioOutline @FakeScenarioOutline1
   Scenario Outline: Fake Scenario Outline (<who>)
     ***Related Functions***
-    - [FakeModuleC] `FakeFunc<func>`
+    - [FakeModuleB] `FakeFunc<func>`
 
     Given <who> has done something
     When <who> does some actions
     Then <who> gets expected results
+    And <who> stores expected results
+      | func   | param   |
+      | <func> | <param> |
     Examples:
-      | who   | func |
-      | admin | 3    |
-      | user  | 4    |
+      | who   | func | param |
+      | admin | B1   | P1    |
+      | user  | B2   | P2    |
