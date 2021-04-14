@@ -21,9 +21,10 @@ Feature: Fake Feature
     Given <who> has done something
     When <who> does some actions
     Then <who> gets expected results
-    And <who> stores expected results
-      | func   | param   |
-      | <func> | <param> |
+    And <who> attaches expected results
+      | func   | <func>        |
+      | param  | <param>       |
+      | result | {<who>Result} |
     Examples:
       | who   | func | param |
       | admin | B1   | P1    |

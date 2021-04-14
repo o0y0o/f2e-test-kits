@@ -15,6 +15,7 @@ const suiteNames = []
 const caseFnames = []
 const caseReports = []
 const argsFnames = []
+const args = []
 
 const exptDesc = (mod, func) =>
   `^<p><em><strong>Revision</strong></em></p>\n<p>v0.0.0</p>\n<p><em><strong>Time</strong></em></p>\n<p>\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+08:00</p>\n<p><em><strong>Main Functions</strong></em></p>\n<ul>\n<li>\\[FakeModule\\] <code>FakeFunc</code></li>\n</ul>\n<p><em><strong>Related Functions</strong></em></p>\n<ul>\n<li>\\[FakeModule${mod}\\] <code>FakeFunc${func}</code></li>\n</ul>\n$`
@@ -30,6 +31,9 @@ const exptStep = {
   stop: expect.any(Number),
   attachments: expect.any(Array)
 }
+const exptArgAtt = {
+  source: expect.stringMatching(/-arguments\.csv$/)
+}
 
 beforeAll(async () => {
   await execAsync('cucumber-js test/feature --require test/step --format test/lib/AllureReporter.js')
@@ -39,6 +43,15 @@ beforeAll(async () => {
   caseFnames.push(...reportFnames.filter(fname => /-result\.json$/.test(fname)))
   caseReports.push(...caseFnames.map(fname => require(path.join(AllureReporter.reportDir, fname))))
   argsFnames.push(...reportFnames.filter(fname => /-arguments\.csv$/.test(fname)))
+  args.push(
+    ...(await Promise.all(
+      argsFnames.map(async fname => {
+        const bf = await fs.readFile(path.join(AllureReporter.reportDir, fname))
+        const content = bf.toString('utf8')
+        return { fname, content }
+      })
+    ))
+  )
 })
 
 describe('@0y0/cucumber-kits/CucumberAllureReporter', () => {
@@ -61,16 +74,26 @@ describe('@0y0/cucumber-kits/CucumberAllureReporter', () => {
 
   it('should generate scenario report', () => {
     const actResult = caseReports.find(report => report.name === 'Fake Scenario')
-    expect(actResult).toMatchSnapshot(exptResult(exptDesc('A', 'A1')))
-    for (const actStep of actResult.steps) expect(actStep).toMatchSnapshot(exptStep)
+    validateTestResult(actResult, 'A', 'A1')
   })
 
   it('should generate scenario outline report', () => {
     const actResult1 = caseReports.find(report => report.name === 'Fake Scenario Outline (admin)')
     const actResult2 = caseReports.find(report => report.name === 'Fake Scenario Outline (user)')
-    expect(actResult1).toMatchSnapshot(exptResult(exptDesc('B', 'B1')))
-    expect(actResult2).toMatchSnapshot(exptResult(exptDesc('B', 'B2')))
-    for (const actStep of actResult1.steps) expect(actStep).toMatchSnapshot(exptStep)
-    for (const actStep of actResult2.steps) expect(actStep).toMatchSnapshot(exptStep)
+    validateTestResult(actResult1, 'B', 'B1')
+    validateTestResult(actResult2, 'B', 'B2')
   })
+
+  function validateTestResult(act, mod, func) {
+    expect(act).toMatchSnapshot(exptResult(exptDesc(mod, func)))
+    for (const actStep of act.steps) {
+      expect(actStep).toMatchSnapshot(exptStep)
+      if (actStep.name.includes('attaches')) {
+        const actArgAtt = actStep.attachments[0]
+        expect(actArgAtt).toMatchSnapshot(exptArgAtt)
+        const actArg = args.find(({ fname }) => fname === actArgAtt.source)
+        expect(actArg.content).toMatchSnapshot()
+      }
+    }
+  }
 })
