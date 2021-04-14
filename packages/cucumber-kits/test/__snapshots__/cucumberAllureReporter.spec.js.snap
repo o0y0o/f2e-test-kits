@@ -58,6 +58,77 @@ Object {
 
 exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario outline report 2`] = `
 Object {
+  "attachments": Any<Array>,
+  "name": "Given admin has done something",
+  "parameters": Array [],
+  "stage": "finished",
+  "start": Any<Number>,
+  "status": "passed",
+  "statusDetails": Object {},
+  "steps": Array [],
+  "stop": Any<Number>,
+}
+`;
+
+exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario outline report 3`] = `
+Object {
+  "attachments": Any<Array>,
+  "name": "When admin does some actions",
+  "parameters": Array [],
+  "stage": "finished",
+  "start": Any<Number>,
+  "status": "passed",
+  "statusDetails": Object {},
+  "steps": Array [],
+  "stop": Any<Number>,
+}
+`;
+
+exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario outline report 4`] = `
+Object {
+  "attachments": Any<Array>,
+  "name": "Then admin gets expected results",
+  "parameters": Array [],
+  "stage": "finished",
+  "start": Any<Number>,
+  "status": "passed",
+  "statusDetails": Object {},
+  "steps": Array [],
+  "stop": Any<Number>,
+}
+`;
+
+exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario outline report 5`] = `
+Object {
+  "attachments": Any<Array>,
+  "name": "And admin attaches expected results",
+  "parameters": Array [],
+  "stage": "finished",
+  "start": Any<Number>,
+  "status": "passed",
+  "statusDetails": Object {},
+  "steps": Array [],
+  "stop": Any<Number>,
+}
+`;
+
+exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario outline report 6`] = `
+Object {
+  "name": "arguments.csv",
+  "source": StringMatching /-arguments\\\\\\.csv\\$/,
+  "type": "text/csv",
+}
+`;
+
+exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario outline report 7`] = `
+"func,B1
+param,P1
+result,B1.P1
+"
+`;
+
+exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario outline report 8`] = `
+Object {
   "attachments": Array [],
   "descriptionHtml": StringMatching /\\^<p><em><strong>Revision<\\\\/strong><\\\\/em><\\\\/p>\\\\n<p>v0\\.0\\.0<\\\\/p>\\\\n<p><em><strong>Time<\\\\/strong><\\\\/em><\\\\/p>\\\\n<p>\\\\d\\{4\\}-\\\\d\\{2\\}-\\\\d\\{2\\}T\\\\d\\{2\\}:\\\\d\\{2\\}:\\\\d\\{2\\}\\\\\\+08:00<\\\\/p>\\\\n<p><em><strong>Main Functions<\\\\/strong><\\\\/em><\\\\/p>\\\\n<ul>\\\\n<li>\\\\\\[FakeModule\\\\\\] <code>FakeFunc<\\\\/code><\\\\/li>\\\\n<\\\\/ul>\\\\n<p><em><strong>Related Functions<\\\\/strong><\\\\/em><\\\\/p>\\\\n<ul>\\\\n<li>\\\\\\[FakeModuleB\\\\\\] <code>FakeFuncB2<\\\\/code><\\\\/li>\\\\n<\\\\/ul>\\\\n\\$/,
   "historyId": "Allure Test Reports: Fake Scenario Outline (user)",
@@ -112,63 +183,7 @@ Object {
 }
 `;
 
-exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario outline report 3`] = `
-Object {
-  "attachments": Any<Array>,
-  "name": "Given admin has done something",
-  "parameters": Array [],
-  "stage": "finished",
-  "start": Any<Number>,
-  "status": "passed",
-  "statusDetails": Object {},
-  "steps": Array [],
-  "stop": Any<Number>,
-}
-`;
-
-exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario outline report 4`] = `
-Object {
-  "attachments": Any<Array>,
-  "name": "When admin does some actions",
-  "parameters": Array [],
-  "stage": "finished",
-  "start": Any<Number>,
-  "status": "passed",
-  "statusDetails": Object {},
-  "steps": Array [],
-  "stop": Any<Number>,
-}
-`;
-
-exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario outline report 5`] = `
-Object {
-  "attachments": Any<Array>,
-  "name": "Then admin gets expected results",
-  "parameters": Array [],
-  "stage": "finished",
-  "start": Any<Number>,
-  "status": "passed",
-  "statusDetails": Object {},
-  "steps": Array [],
-  "stop": Any<Number>,
-}
-`;
-
-exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario outline report 6`] = `
-Object {
-  "attachments": Any<Array>,
-  "name": "And admin stores expected results",
-  "parameters": Array [],
-  "stage": "finished",
-  "start": Any<Number>,
-  "status": "passed",
-  "statusDetails": Object {},
-  "steps": Array [],
-  "stop": Any<Number>,
-}
-`;
-
-exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario outline report 7`] = `
+exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario outline report 9`] = `
 Object {
   "attachments": Any<Array>,
   "name": "Given user has done something",
@@ -182,7 +197,7 @@ Object {
 }
 `;
 
-exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario outline report 8`] = `
+exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario outline report 10`] = `
 Object {
   "attachments": Any<Array>,
   "name": "When user does some actions",
@@ -196,7 +211,7 @@ Object {
 }
 `;
 
-exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario outline report 9`] = `
+exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario outline report 11`] = `
 Object {
   "attachments": Any<Array>,
   "name": "Then user gets expected results",
@@ -210,10 +225,10 @@ Object {
 }
 `;
 
-exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario outline report 10`] = `
+exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario outline report 12`] = `
 Object {
   "attachments": Any<Array>,
-  "name": "And user stores expected results",
+  "name": "And user attaches expected results",
   "parameters": Array [],
   "stage": "finished",
   "start": Any<Number>,
@@ -222,6 +237,21 @@ Object {
   "steps": Array [],
   "stop": Any<Number>,
 }
+`;
+
+exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario outline report 13`] = `
+Object {
+  "name": "arguments.csv",
+  "source": StringMatching /-arguments\\\\\\.csv\\$/,
+  "type": "text/csv",
+}
+`;
+
+exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario outline report 14`] = `
+"func,B2
+param,P2
+result,B2.P2
+"
 `;
 
 exports[`@0y0/cucumber-kits/CucumberAllureReporter should generate scenario report 1`] = `

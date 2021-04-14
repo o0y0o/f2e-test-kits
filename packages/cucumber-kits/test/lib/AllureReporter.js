@@ -17,7 +17,7 @@ class AllureReporter extends CucumberAllureReporter {
         reportDir: AllureReporter.reportDir
       },
       suiteFormatter,
-      runtimeState: AllureReporter.globalState
+      runtimeState: AllureReporter.runtimeState
     })
   }
 }
@@ -26,6 +26,6 @@ AllureReporter.reportName = 'Allure Test Reports'
 AllureReporter.reportRevision = 'v0.0.0'
 AllureReporter.reportUtcOffset = 480
 AllureReporter.reportDir = path.join(__dirname, '../.tmp/allure-reports')
-AllureReporter.globalState = {}
+AllureReporter.runtimeState = {}
 
 module.exports = AllureReporter
