@@ -1,6 +1,6 @@
 {
   "name": "@0y0/cucumber-kits",
-  "version": "1.0.0-beta.7",
+  "version": "1.0.0",
   "description": "Cucumber Kits.",
   "main": "lib/index.js",
   "repository": "https://github.com/o0y0o/f2e-test-kits",
