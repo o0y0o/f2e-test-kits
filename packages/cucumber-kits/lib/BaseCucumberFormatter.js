@@ -150,9 +150,10 @@ module.exports = class BaseCucumberFormatter extends Formatter {
         const isBeforeHook = index < numOfBeforeHooks
         const isAfterHook = index >= numOfBeforeHooks + numOfSteps
         if (isBeforeHook || isAfterHook) {
-          const testHook = isBeforeHook
+          const testHookBase = isBeforeHook
             ? testSuite.beforeHooks[index]
             : testSuite.afterHooks[index - numOfBeforeHooks - numOfSteps]
+          const testHook = { ...testHookBase, caseId }
           return this.onTestHookStarted(testHook)
         }
         const testStep = testCase.steps[index - numOfBeforeHooks]
@@ -169,9 +170,10 @@ module.exports = class BaseCucumberFormatter extends Formatter {
         const isBeforeHook = index < numOfBeforeHooks
         const isAfterHook = index >= numOfBeforeHooks + numOfSteps
         if (isBeforeHook || isAfterHook) {
-          const testHook = isBeforeHook
+          const testHookBase = isBeforeHook
             ? testSuite.beforeHooks[index]
             : testSuite.afterHooks[index - numOfBeforeHooks - numOfSteps]
+          const testHook = { ...testHookBase, caseId }
           return this.onTestHookFinished(testHook, result)
         }
         const testStep = testCase.steps[index - numOfBeforeHooks]
